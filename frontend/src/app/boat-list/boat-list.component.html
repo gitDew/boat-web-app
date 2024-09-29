@@ -1,0 +1,6 @@
+<h3>This is where all the boats will be displayed.</h3>
+<ul>
+  @for (boat of boats$ | async; track boat.id) {
+    <app-boat-detail [selectedBoat]="boat" />
+  }
+</ul>
