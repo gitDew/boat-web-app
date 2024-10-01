@@ -2,11 +2,17 @@
   padding: 20px;
   min-width: 300px;
   margin-top: 5px;
+  transition: box-shadow .3s;
 }
 
-.element {
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.flex-container {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .delete-button {

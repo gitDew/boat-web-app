@@ -13,6 +13,8 @@ import { BoatsService } from '../../boats.service';
 })
 export class BoatListElementComponent {
   faTrashCan = faTrashCan;
+  selected: boolean = false;
+  private beingDeleted = false;
 
   @Input() boat!: Boat;
 
@@ -21,8 +23,15 @@ export class BoatListElementComponent {
   constructor(private boatsService: BoatsService) {}
 
   onDelete(): void {
+    this.beingDeleted = true;
     this.boatsService.deleteBoat(this.boat.id).subscribe(() => {
       this.deleted.emit();
     });
+  }
+
+  toggleSelected(): void {
+    if (!this.beingDeleted) {
+      this.selected = !this.selected;
+    }
   }
 }
