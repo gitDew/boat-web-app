@@ -1,8 +1,5 @@
 <ul class="boat-list">
   @for (boat of boats; track boat.id) {
-    <app-boat-list-element [boat]="boat" (click)="onClick(boat)" />
+    <app-boat-list-element [boat]="boat" (click)="onClick(boat)" (deleted)="onDelete()"/>
   }
 </ul>
-@if (selectedBoat) {
-  <app-boat-detail [thisBoat]="selectedBoat" (deleted)="onDelete()" />
-}

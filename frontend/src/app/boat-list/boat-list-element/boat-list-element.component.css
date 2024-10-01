@@ -3,3 +3,16 @@
   min-width: 300px;
   margin-top: 5px;
 }
+
+.element {
+  display: flex;
+  justify-content: space-between
+}
+
+.delete-button {
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: red;
+}
