@@ -2,12 +2,12 @@
   padding: 20px;
   min-width: 300px;
   margin-top: 5px;
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
 }
 
 .card:hover {
   cursor: pointer;
-  box-shadow: 0 0 11px rgba(33,33,33,.2);
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
 .flex-container {

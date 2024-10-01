@@ -1,8 +1,9 @@
 <div class="card" (click)="toggleSelected()">
   <div class="flex-container">
-    <p>{{ boat.name }}</p><fa-icon class="delete-button" (click)="onDelete()" [icon]="faTrashCan"/>
+    <p>{{ boat.name }}</p>
+    <fa-icon class="delete-button" (click)="onDelete()" [icon]="faTrashCan" />
   </div>
   @if (selected) {
-  <p>{{boat.description}}</p>
+    <p>{{ boat.description }}</p>
   }
 </div>

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Boat } from '../models/Boat';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BoatsService } from '../../boats.service';
 
 @Component({
