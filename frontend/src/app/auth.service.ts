@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,15 +16,14 @@ export class AuthService {
     const credentials = btoa(`${email}:${password}`);
 
     return this.http
-      .post('http://localhost:8080/token', null, {
+      .post(`${environment.backendUrl}/token`, null, {
         headers: new HttpHeaders({
           Authorization: `Basic ${credentials}`,
           'Content-Type': 'text/plain',
         }),
         responseType: 'text',
       })
-      .pipe(
-        tap((token: string) => (this.token = token)));
+      .pipe(tap((token: string) => (this.token = token)));
   }
 
   logout() {
