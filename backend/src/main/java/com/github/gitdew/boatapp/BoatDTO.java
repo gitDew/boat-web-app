@@ -1,5 +1,6 @@
 package com.github.gitdew.boatapp;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
 
@@ -8,6 +9,7 @@ import lombok.Data;
 public class BoatDTO {
 
   private Long id;
+  @NotBlank
   private String name;
   private String description;
 }
