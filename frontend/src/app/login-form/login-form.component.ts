@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-login-form',
@@ -16,6 +17,7 @@ import {
   styleUrl: './login-form.component.css',
 })
 export class LoginFormComponent {
+  hasLoginError: boolean = false;
   loginForm = new FormGroup({
     email: new FormControl('user@boats.com', [
       Validators.required,
@@ -26,14 +28,20 @@ export class LoginFormComponent {
   constructor(
     public authService: AuthService,
     private router: Router,
+    private notificationService: NotificationService,
   ) {}
 
   onSubmit(): void {
     this.authService
       .login(this.loginForm.value.email!, this.loginForm.value.password!)
       .subscribe({
-        next: () => {this.router.navigate(['/boats'])},
-        error: () => {console.log("Authentication failed.")}
+        next: () => {
+          this.router.navigate(['/boats']);
+        },
+        error: () => {
+          this.notificationService.openSnackBar('Login failed.', 'Dismiss');
+          this.loginForm.controls['password'].setValue('');
+        },
       });
   }
 }

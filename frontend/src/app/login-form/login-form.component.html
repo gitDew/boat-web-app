@@ -1,11 +1,5 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <label>
-    E-Mail
-    <input type="email" formControlName="email" />
-  </label>
-  <label>
-    Password
-    <input type="password" formControlName="password" />
-  </label>
+<form class="login card" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <input type="email" placeholder="Email" formControlName="email" />
+  <input type="password" placeholder="Password" formControlName="password" />
   <button type="submit" [disabled]="!loginForm.valid">Login</button>
 </form>
