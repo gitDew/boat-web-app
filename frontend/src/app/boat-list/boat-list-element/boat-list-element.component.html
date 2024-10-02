@@ -1,9 +1,45 @@
-<div class="card" (click)="toggleSelected()">
+<form
+  class="boat-form card"
+  [formGroup]="boatForm"
+  (click)="toggleSelected()"
+  (ngSubmit)="onSubmit()"
+>
   <div class="flex-container">
-    <p>{{ boat.name }}</p>
-    <fa-icon class="delete-button" (click)="onDelete()" [icon]="faTrashCan" />
+    <input
+      type="text"
+      class="boat-name"
+      placeholder="Boat Name"
+      [maxLength]="maxNameLength + 1"
+      formControlName="name"
+    />
+    @if (!isBeingEdited) {
+      <fa-icon
+        class="edit-button icon-button"
+        (click)="onEdit()"
+        [icon]="faPencilSquare"
+      />
+      <fa-icon
+        class="delete-button icon-button"
+        (click)="onDelete()"
+        [icon]="faTrashCan"
+      />
+    } @else {
+      <button type="submit" [disabled]="!boatForm.valid">
+        <fa-icon
+          class="save-button icon-button"
+          [icon]="faSave"
+          [class.save-button]="boatForm.valid"
+        />
+      </button>
+    }
   </div>
   @if (selected) {
-    <p>{{ boat.description }}</p>
+    <textarea
+      class="description-box"
+      placeholder="Description"
+      [maxlength]="maxDescriptionLength + 1"
+      formControlName="description"
+    >
+    </textarea>
   }
-</div>
+</form>

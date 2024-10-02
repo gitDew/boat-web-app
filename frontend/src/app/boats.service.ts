@@ -18,4 +18,8 @@ export class BoatsService {
   deleteBoat(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/boats/${id}`);
   }
+
+  updateBoat(id: number, boat: Boat): Observable<Boat> {
+    return this.http.put<Boat>(`${this.apiUrl}/boats/${id}`, boat);
+  }
 }

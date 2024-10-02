@@ -12,13 +12,59 @@
 
 .flex-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
 }
 
-.delete-button {
+.boat-name {
+  margin-right: auto;
+}
+
+.icon-button {
   cursor: pointer;
+  font-size: 1.5em;
 }
 
 .delete-button:hover {
   color: red;
+}
+
+.edit-button:hover {
+  color: blue;
+}
+
+.save-button:hover {
+  color: green;
+}
+
+button {
+  background-color: transparent;
+  border: none !important;
+}
+
+input:disabled {
+  color: black;
+  background-color: transparent;
+  border: none;
+}
+
+textarea:disabled {
+  color: black;
+}
+
+.description-box {
+  min-height: 2em;
+  width: 80%;
+}
+
+input,
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+input:focus {
+  outline: none;
 }
