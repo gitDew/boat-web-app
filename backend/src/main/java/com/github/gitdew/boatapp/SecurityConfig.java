@@ -11,6 +11,7 @@ import java.security.interfaces.RSAPublicKey;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -37,7 +38,10 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http
-        .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+        .authorizeHttpRequests(
+            auth -> auth
+                .requestMatchers(HttpMethod.DELETE).hasAuthority("SCOPE_ADMIN")
+                .anyRequest().authenticated())
         .cors(Customizer.withDefaults())
         .csrf(csrf -> csrf.ignoringRequestMatchers("/token"))
         .httpBasic(Customizer.withDefaults())
@@ -64,7 +68,11 @@ public class SecurityConfig {
     return new InMemoryUserDetailsManager(
         User.withUsername("user@boats.com")
             .password("{noop}iloveboats")
-            .authorities("boats")
+            .authorities("USER")
+            .build(),
+        User.withUsername("admin@boats.com")
+            .password("{noop}admin")
+            .authorities("ADMIN")
             .build()
     );
   }
