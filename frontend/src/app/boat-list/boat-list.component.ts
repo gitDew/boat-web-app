@@ -25,8 +25,9 @@ export class BoatListComponent {
   }
 
   getBoats() {
-    this.boatsService.getBoats().subscribe((boats) => {
-      this.boats = boats;
+    this.boatsService.getBoats()
+    .subscribe((boats) => {
+      this.boats = boats.sort();
     });
   }
 
