@@ -41,7 +41,7 @@ export class BoatListComponent {
 
   onAdd() {
     let newBoat: Boat = {
-      id: this.counter--,
+      id: this.counter--, // use a negative counter here for @if tracking by angular
       name: 'A Brand New Boat',
       description: '',
     };
