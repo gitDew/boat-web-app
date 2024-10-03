@@ -1,7 +1,7 @@
-FROM eclipse-temurin:21 as build
+FROM gradle:latest as build
 WORKDIR /app
 COPY . .
-RUN ./gradlew build
+RUN gradle clean build
 
 
 FROM eclipse-temurin:21
