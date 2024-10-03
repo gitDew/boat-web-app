@@ -22,4 +22,8 @@ export class BoatsService {
   updateBoat(id: number, boat: Boat): Observable<Boat> {
     return this.http.put<Boat>(`${this.apiUrl}/boats/${id}`, boat);
   }
+
+  createBoat(boat: Boat): Observable<Boat> {
+    return this.http.post<Boat>(`${this.apiUrl}/boats`, boat);
+  }
 }

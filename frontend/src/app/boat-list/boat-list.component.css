@@ -5,3 +5,18 @@
   justify-content: center;
   align-items: stretch;
 }
+
+.add-button-container {
+  align-self: center;
+  margin-top: 1em;
+}
+
+.add-button {
+  font-size: 3em;
+  color: #0099ff;
+}
+.add-button:hover {
+  color: #0056b3;
+  cursor: pointer;
+}
+

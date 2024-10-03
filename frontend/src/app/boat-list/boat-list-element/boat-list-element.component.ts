@@ -47,16 +47,23 @@ export class BoatListElementComponent {
   constructor(private boatsService: BoatsService) {}
 
   ngOnInit() {
-    this.boatForm.disable();
     this.boatForm.get('name')?.setValue(this.boat.name);
     this.boatForm.get('description')?.setValue(this.boat.description);
+    if (this.boat.id && this.boat.id >= 0) {
+      this.boatForm.disable();
+    } else {
+      this.onEdit();
+    }
   }
 
   onDelete(): void {
     this.isBeingDeleted = true;
-    this.boatsService.deleteBoat(this.boat.id).subscribe(() => {
-      this.deleted.emit();
+    if (this.boat.id) {
+      this.boatsService.deleteBoat(this.boat.id).subscribe(() => {
+        this.deleted.emit();
     });
+    }
+    this.isBeingDeleted = false;
   }
 
   onEdit(): void {
@@ -66,14 +73,16 @@ export class BoatListElementComponent {
   }
 
   onSubmit(): void {
-    if (this.boat.id) {
+    if (this.boat.id && this.boat.id >= 0) {
       this.boatsService
         .updateBoat(this.boat.id, Object.assign(this.boat, this.boatForm.value))
         .subscribe((boat: Boat) => {
           this.boat = boat;
         });
-    } else {
-      // TODO
+    } else if (this.boat.id) {
+      this.boatsService.createBoat(Object.assign(this.boat, this.boatForm.value)).subscribe((boat: Boat) => {
+        this.boat = boat;
+      });
     }
     this.boatForm.disable();
     this.isBeingEdited = false;

@@ -38,11 +38,6 @@
   color: green;
 }
 
-button {
-  background-color: transparent;
-  border: none !important;
-}
-
 input:disabled {
   color: black;
   background-color: transparent;
@@ -65,6 +60,8 @@ textarea {
   padding: 5px;
 }
 
-input:focus {
+input:focus, textarea:focus {
   outline: none;
 }
+
+
