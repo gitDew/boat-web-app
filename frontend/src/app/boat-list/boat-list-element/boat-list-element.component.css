@@ -60,8 +60,7 @@ textarea {
   padding: 5px;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
 }
-
-

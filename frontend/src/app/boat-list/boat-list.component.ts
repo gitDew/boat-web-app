@@ -25,8 +25,7 @@ export class BoatListComponent {
   }
 
   getBoats() {
-    this.boatsService.getBoats()
-    .subscribe((boats) => {
+    this.boatsService.getBoats().subscribe((boats) => {
       this.boats = boats.sort();
     });
   }
@@ -42,10 +41,10 @@ export class BoatListComponent {
 
   onAdd() {
     let newBoat: Boat = {
-        id: this.counter--,
-        name: "A Brand New Boat",
-        description: ""
-    }
-    this.boats.push(newBoat)
+      id: this.counter--,
+      name: 'A Brand New Boat',
+      description: '',
+    };
+    this.boats.push(newBoat);
   }
 }

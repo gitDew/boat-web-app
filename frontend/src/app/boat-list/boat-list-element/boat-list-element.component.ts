@@ -61,7 +61,7 @@ export class BoatListElementComponent {
     if (this.boat.id) {
       this.boatsService.deleteBoat(this.boat.id).subscribe(() => {
         this.deleted.emit();
-    });
+      });
     }
     this.isBeingDeleted = false;
   }
@@ -80,9 +80,11 @@ export class BoatListElementComponent {
           this.boat = boat;
         });
     } else if (this.boat.id) {
-      this.boatsService.createBoat(Object.assign(this.boat, this.boatForm.value)).subscribe((boat: Boat) => {
-        this.boat = boat;
-      });
+      this.boatsService
+        .createBoat(Object.assign(this.boat, this.boatForm.value))
+        .subscribe((boat: Boat) => {
+          this.boat = boat;
+        });
     }
     this.boatForm.disable();
     this.isBeingEdited = false;
