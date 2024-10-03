@@ -1,4 +1,4 @@
-package com.github.gitdew.boatapp;
+package com.github.gitdew.boatapp.security;
 
 import java.time.Instant;
 import java.util.stream.Collectors;
@@ -20,8 +20,9 @@ public class SecurityController {
   @PostMapping("/token")
   public String token(Authentication authentication) {
     Instant now = Instant.now();
-    String scope = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(
-        Collectors.joining(" "));
+    String scope = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority)
+        .collect(
+            Collectors.joining(" "));
     JwtClaimsSet claims = JwtClaimsSet.builder()
         .issuer("boatapp")
         .issuedAt(now)

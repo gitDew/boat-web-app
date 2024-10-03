@@ -1,4 +1,4 @@
-package com.github.gitdew.boatapp;
+package com.github.gitdew.boatapp.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,5 +1,8 @@
-package com.github.gitdew.boatapp;
+package com.github.gitdew.boatapp.services;
 
+import com.github.gitdew.boatapp.entities.Boat;
+import com.github.gitdew.boatapp.exceptions.NotFoundException;
+import com.github.gitdew.boatapp.repositories.BoatRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,7 +17,7 @@ public class BoatService {
     return boatRepository.findById(id).orElseThrow(NotFoundException::new);
   }
 
-  List<Boat> getBoats() {
+  public List<Boat> getBoats() {
     return boatRepository.findAll();
   }
 

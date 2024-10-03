@@ -1,4 +1,4 @@
-package com.github.gitdew.boatapp;
+package com.github.gitdew.boatapp.security;
 
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;

@@ -1,5 +1,7 @@
 package com.github.gitdew.boatapp;
 
+import com.github.gitdew.boatapp.entities.Boat;
+import com.github.gitdew.boatapp.repositories.BoatRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

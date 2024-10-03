@@ -1,5 +1,8 @@
-package com.github.gitdew.boatapp;
+package com.github.gitdew.boatapp.views;
 
+import com.github.gitdew.boatapp.dtos.BoatDTO;
+import com.github.gitdew.boatapp.entities.Boat;
+import com.github.gitdew.boatapp.services.BoatService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,7 +17,7 @@ public class BoatView {
     return toDTO(boatService.getBoat(id));
   }
 
-  List<BoatDTO> getBoats() {
+  public List<BoatDTO> getBoats() {
     return boatService.getBoats().stream().map(this::toDTO).toList();
   }
 

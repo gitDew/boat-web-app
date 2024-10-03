@@ -1,4 +1,4 @@
-package com.github.gitdew.boatapp;
+package com.github.gitdew.boatapp.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

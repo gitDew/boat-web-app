@@ -1,5 +1,7 @@
-package com.github.gitdew.boatapp;
+package com.github.gitdew.boatapp.controller;
 
+import com.github.gitdew.boatapp.dtos.BoatDTO;
+import com.github.gitdew.boatapp.views.BoatView;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
